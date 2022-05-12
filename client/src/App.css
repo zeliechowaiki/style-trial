@@ -1,3 +1,15 @@
+body {
+  margin: 0;
+}
+
+* {
+  font-family: 'Red Hat Display', sans-serif;
+}
+
+a {
+  color: black;
+}
+
 .App {
   text-align: center;
 }
@@ -35,4 +47,519 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.hidden {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+.form-page {
+  position: absolute;
+  left: 50%;
+  top: 20%;
+  transform: translate(-50%, -20%);
+}
+
+.avatar-button {
+  height: 50px;
+  margin-top: 10px;
+}
+
+.avatar-button * {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.avatar-input {
+  opacity: 0;
+  z-index: 100;
+}
+
+.sample-avatar {
+  object-fit: cover;
+}
+
+.clicked-preference {
+  background-color: #7c7c7c;
+}
+
+.account-avatar {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.navbar {
+  padding-left: 150px;
+  padding-right: 70px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 60px;
+}
+
+*:focus {
+  outline: none;
+}
+
+.navbar > * {
+  text-decoration: none;
+  font-size: 20px;
+  color: black;
+}
+
+.navbar p {
+  font-weight: bold;
+  transition: all .4s;
+}
+
+.navbar p:hover {
+  color: rgb(97, 97, 97)
+}
+
+.listing-price {
+  font-weight: bold;
+}
+
+.style {
+  font-weight: 700;
+}
+
+.swap {
+  font-weight: 900;
+  font-style: italic;
+}
+
+.search-bar button {
+  background-color: transparent;
+  border: solid 1px black;
+  border-radius: 0 5px 5px 0;
+  width: 35px;
+}
+
+.search-bar button svg {
+  margin-top: 3px;
+}
+
+.logo {
+  font-size: 25px;
+  position: absolute;
+  left: 25px;
+}
+
+.nav-avatar {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+  transition: all .4s;
+}
+
+.nav-avatar:hover {
+  filter: opacity(85%);
+}
+
+.nav-account {
+  position: absolute;
+  right: 25px;
+  width: 40px;
+  height: 40px;
+}
+
+.nav-account p {
+  width: 60px;
+  margin: auto;
+  margin-top: 7px;
+  text-align: left;
+  margin-right: 20px;
+}
+
+.search-bar {
+  width: 45%;
+  display: flex;
+  height: 35px;
+}
+
+.search-bar input {
+  flex-grow: 1;
+  font-size: 16px;
+  border: solid 1px black;
+  border-right: none;
+  border-radius: 5px 0 0 5px;
+}
+
+.set-photo-button {
+  height: 200px;
+  margin-top: 10px;
+}
+
+.set-photo-button * {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 200px;
+  height: 200px;
+  border-radius: 10%;
+}
+
+h2 {
+  margin-top: 30px;
+  margin-bottom: 25px;
+  font-size: 28px;
+}
+
+.set-photo-input {
+  opacity: 0;
+  z-index: 100;
+}
+
+.sample-set-photo {
+  object-fit: contain;
+}
+
+.new-listing-page {
+  position: absolute;
+  width: 100%;
+  left: 50%;
+  top: 100px;
+  transform: translate(-50%, 0px);
+}
+
+.big-description {
+  width: 35%;
+  height: 60px;
+  vertical-align: top;
+}
+
+.big-description::placeholder {
+  position: absolute;
+}
+
+.homepage-background-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: bottom;
+  z-index: -1;
+}
+
+.homepage-background-image-container {
+  width: 100%;
+  height: 680px;
+  margin: auto;
+}
+
+.homepage-image-buttons {
+  top: 60px;
+  left: 50%;
+  width: 98%;
+  height: 680px;
+  transform: translate(-50%, 0);
+  position: absolute;
+  display: flex;
+  justify-content: space-around;
+  aspect-ratio: 3/2;
+  align-items: center;
+  z-index: 100;
+}
+
+.homepage-image-buttons a {
+  height: 18%;
+}
+
+.homepage-image-buttons button{
+  background-color: rgba(255,255,255,0.8);
+  font-size: 20px;
+  height: 100%;
+  width: 200px;
+  border-radius: 15%;
+  cursor: pointer;
+  border: none;
+  transition: all .4s;
+}
+
+.homepage-image-buttons button:hover {
+  background-color: rgba(255,255,255,1);
+}
+
+.browse-page {
+  display: flex;
+  flex-flow: row wrap;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.browse-listing {
+  width: 25%;
+  margin-bottom: 30px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.browse-listing a > * {
+  width: 95%;
+  margin: auto;
+  color: black;
+}
+
+.browse-listing p {
+  text-align: left;
+  margin-left: 5%;
+}
+
+.browse-listing img {
+  aspect-ratio: 1/1;
+  object-fit: contain;
+  transition: all .4s;
+}
+
+.browse-listing .listing-price {
+  margin-top: -2px;
+}
+
+.browse-listing img:hover {
+  filter: brightness(60%);
+}
+
+.popular-listings {
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.popular-listings-header {
+  margin-top: 40px;
+  font-size: 20px;
+  text-decoration: underline;
+}
+
+.filter-sort {
+  width: 40%;
+  height: 50px;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.filter-sort button {
+  border: none;
+  background-color: transparent;
+}
+
+.browse-line {
+  width: 80%;
+  border: solid .5px rgb(165, 164, 164);
+}
+
+.sort-button {
+  border-left: solid .5px rgb(205, 205, 205);
+}
+
+.filter-button {
+  border-right: solid .5px rgb(205, 205, 205);
+}
+
+.filter-sort-container {
+  display: flex;
+  justify-content: center;
+}
+
+.listing-page {
+  display: flex;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 10px;
+  gap: 20px;
+}
+
+.side-photos-container {
+  width: 10%;
+  z-index: 100;
+}
+
+.listing-page img {
+  width: 100%;
+}
+
+.big-photo-container {
+  width: 45%;
+}
+
+.listing-info {
+  width: 45%;
+  text-align: left;
+}
+
+.listing-info img {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.listing-info p {
+  margin-top: 0px
+}
+
+.listing-page-username {
+  font-weight: bold;
+}
+
+.listing-info {
+  padding-left: 10px;
+}
+
+.listing-page button {
+  width: 90%;
+  height: 50px;
+  border: none;
+  background-color: black;
+  color: white;
+  font-weight: bolder;
+  font-size: 18px;
+}
+
+.filter-form {
+  position: absolute;
+  width: 70%;
+  height: 65%;
+  background-color: white;
+  top: 165px;
+  left: 50%;
+  transform: translate(-50%);
+  box-shadow: 0px 0px 15px 10px rgba(0, 0, 0, 0.6);
+}
+
+.filter-form h3 {
+  font-size: 22px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.filter-form > * {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.filter-form .x-button {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 22px;
+  border:none;
+  background-color: transparent;
+}
+
+.filter-form-submit {
+  margin-top: 0px;
+  width: 60%;
+  height: 50px;
+  font-size: 18px;
+  background-color: black;
+  border: none;
+  color: white;
+}
+
+.clear-filters {
+  width: 20%;
+  font-size: 12px;
+  border: none;
+  margin-top: 12px;
+}
+
+.main-account-info {
+  display: flex;
+  margin-left: 20px;
+  margin-top: 35px;
+}
+
+.main-account-info div {
+  margin-left: 20px;
+}
+
+.main-account-info p {
+  margin: 0;
+  margin-top: 15px;
+  font-size: 13px;
+}
+
+.main-account-info .account-name {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.account-settings {
+  position: fixed;
+  display: flex;
+  gap: 10px;
+  left: 50%;
+  transform: translate(-50%,0);
+  bottom: 10px;
+  background-color: white;
+}
+
+.account-settings > * {
+  border: none;
+  background-color: transparent;
+  width: 180px;
+}
+
+.account-settings div {
+  width: 1px;
+  background-color: black;
+}
+
+.account-bio {
+  width: 350px;
+  margin-top: 30px;
+  text-align: left;
+  margin-left: 20px;
+}
+
+.account-display-options {
+  display: flex;
+  margin-top: 36px;
+  gap: 25px;
+  margin-left: 20px;
+  margin-bottom: 30px;
+}
+
+.account-display-options > * {
+  border: none;
+  background-color: transparent;
+  font-size: 16px;
+  padding: 0;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.filter-sort p {
+  font-size: 13.3333px
+}
+
+.notification {
+  display: flex;
+  margin-left: 20px;
+}
+
+.notification img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
 }
