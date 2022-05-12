@@ -1,39 +1,39 @@
 import '../App.css';
 import {React, useState, useEffect} from 'react';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
-import HomePage from './HomePage';
-import NavBar from './NavBar';
-import Signup from './account/Signup';
-import Setup from './account/Setup';
-import Login from './account/Login';
-import Account from './account/Account';
-import BrowsePage from './BrowsePage';
-import NewListing from './NewListing';
-import ListingPage from './ListingPage';
+// import HomePage from './HomePage';
+// import NavBar from './NavBar';
+// import Signup from './account/Signup';
+// import Setup from './account/Setup';
+// import Login from './account/Login';
+// import Account from './account/Account';
+// import BrowsePage from './BrowsePage';
+// import NewListing from './NewListing';
+// import ListingPage from './ListingPage';
 
 function App() {
 
-  const [user, setUser] = useState(null);
+  // const [user, setUser] = useState(null);
 
-  function getUser() {
-    fetch("/me").then((r) => {
-      if (r.ok) {
-        r.json().then((user) => setUser(user));
-      }
-      else {
-        r.json().then((err) => console.log(err));
-      }
-    });
-  }
+  // function getUser() {
+  //   fetch("/me").then((r) => {
+  //     if (r.ok) {
+  //       r.json().then((user) => setUser(user));
+  //     }
+  //     else {
+  //       r.json().then((err) => console.log(err));
+  //     }
+  //   });
+  // }
 
-  useEffect(() => {
-    getUser();
-  },[]);
+  // useEffect(() => {
+  //   getUser();
+  // },[]);
 
   return (
     <BrowserRouter>
       <div className="App">
-        <NavBar user={user}/>
+        {/* <NavBar user={user}/>
         <Switch>
           <Route exact path='/'>
             <HomePage user={user} />
@@ -59,7 +59,8 @@ function App() {
           <Route exact path='/listings/:id'>
             <ListingPage user={user}/>
           </Route>
-        </Switch>
+        </Switch> */}
+        hello
       </div>
     </BrowserRouter>
   );
