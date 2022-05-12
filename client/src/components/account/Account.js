@@ -75,7 +75,7 @@ function Account({me, onLogin}) {
           <p>@{user.username}</p>
         </div>
       </div>
-      <p className="account-bio">{user.bio}Hi I'm Zelie and this is my very cool account on Style Swap. Feel free to swap clothes with me, as that is the purpose of this site.</p>
+      <p className="account-bio">{user.bio}Hi I'm Zelie and this is my very cool account on Style Swap! Feel free to swap clothes with me, as that is the purpose of this site.</p>
       <div className="account-display-options">
         <button name="listings" className={accountDisplay === "listings" ? "bold" : ""} onClick={e => setAccountDisplay(e.target.name)} >Listings</button>
         <button name="likes" className={accountDisplay === "likes" ? "bold" : ""} onClick={e => setAccountDisplay(e.target.name)}>Likes</button>
