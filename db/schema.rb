@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(version: 2022_05_06_184242) do
     t.string "email"
     t.string "username"
     t.string "password_digest"
+    t.string "bio"
     t.string "sizes", array: true
     t.string "brands", array: true
     t.string "styles", array: true

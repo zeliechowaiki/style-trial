@@ -563,3 +563,21 @@ a {
   border-radius: 50%;
   margin-right: 10px;
 }
+
+.listing-previews-br {
+  height: 10px;
+}
+
+.match {
+  display: flex;
+  justify-content: center;
+}
+
+.match-page {
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+
+.match-page > * {
+  margin-bottom: 40px;
+}

@@ -3,6 +3,7 @@ import { v4 as uuid } from 'uuid';
 import {useHistory} from 'react-router-dom';
 
 function ListingPreview({user, listingInfo, itemsInfo}) {
+  const listingPhotos = [listingInfo.photo,...itemsInfo.map(item => item.photo)]
   let history = useHistory();
   console.log(user,listingInfo, itemsInfo);
   const totalValue = itemsInfo.reduce((a,b) => a + parseInt(b.value), 0);
@@ -59,8 +60,8 @@ function ListingPreview({user, listingInfo, itemsInfo}) {
     }).then(r => {
       if (r.ok) {
         r.json().then(set => {
-          // console.log(set);
           itemsInfo.forEach(item => createItemListing(item, set));
+          history.push(`/`);
         })
       }
       else {
@@ -72,17 +73,37 @@ function ListingPreview({user, listingInfo, itemsInfo}) {
   }
 
   return (
-    <div>
-      <h1>Preview Listing</h1>
-      {/* <img src={URL.createObjectURL(listingInfo.photo)} alt="set"></img> */}
-      <p>Total set value: ${totalValue}</p>
-      {
-        itemsInfo.map((item) => {
-          return <img key={uuid()} src={URL.createObjectURL(item.photo)} alt="item"></img>
-        })
-      }
-      <button onClick={cancelListing}>Cancel</button>
-      <button onClick={createListing}>Create Listing</button>
+    <div className="listing-page">
+      <div className="side-photos-container">
+        {
+          listingPhotos.map(photo => {
+            return <img key={uuid()} src={URL.createObjectURL(photo)} alt="item"></img>
+          })
+        }
+      </div>
+      <div className="big-photo-container">
+        <img src={URL.createObjectURL(listingInfo.photo)} alt="large display"></img>
+      </div>
+      <div className="listing-info">
+          <img src={user.avatar} alt="poster avatar"></img>
+          <p className="listing-page-username">{user.username}</p>
+        <p>{listingInfo.description}</p>
+        <p className="listing-page-username">${totalValue}.00</p>
+        <p>0 likes</p>
+        <p>Items:</p>
+        {
+          itemsInfo.map(item => {
+            return (
+              <div key={uuid()}>
+                <p>${item.value}.00: {[item.condition[0].toUpperCase(), item.condition.slice(1)]} {item.brand} {item.description.toLowerCase()} in {item.size}</p>
+              </div>
+            )
+          })
+        }
+        <button onClick={createListing}>Create Listing</button>
+        <div className="listing-previews-br" ></div>
+        <button onClick={cancelListing}>Cancel</button>
+      </div>
     </div>
   )
 }

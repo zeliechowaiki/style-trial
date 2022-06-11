@@ -17,7 +17,7 @@ class ClothingSetLikesController < ApplicationController
 
   def notifications
     sets = User.find(session[:user_id]).clothing_sets
-    likes = sets.map{|set| set.clothing_set_likes}.flatten
+    likes = sets.map{|set| set.clothing_set_likes}.flatten.reverse
     render json: likes
   end
 

@@ -69,17 +69,9 @@ class ClothingSetsController < ApplicationController
   end
 
   def matches
-    liked_accounts = User.find(session[:user_id]).liked_accounts
-    liked_me = User.find(session[:user_id]).liked_me
-    account_matches = (liked_accounts & liked_me)
-    if account_matches.length == 0
-      render json: []
-    else
-      account_match = account_matches.first
-      set_for_me = User.find(session[:user_id]).liked_sets.find{|set| set.user_id == account_match.id}
-      set_for_you = account_match.liked_sets.find{|set| set.user_id == session[:user_id]}
-      render json: [set_for_me, set_for_you]
-    end
+    user = User.find(session[:user_id])
+    pairs = user.clothing_sets.map{|set| set.matching_set}.compact
+    render json: pairs
   end
 
   private

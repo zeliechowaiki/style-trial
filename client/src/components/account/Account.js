@@ -1,6 +1,7 @@
 import {React, useEffect, useState} from 'react';
 import { useHistory, useLocation, NavLink } from "react-router-dom";
 import {v4 as uuid} from 'uuid';
+import Matches from '../Matches';
 
 function Account({me, onLogin}) {
   const location = useLocation();
@@ -8,7 +9,7 @@ function Account({me, onLogin}) {
   const [user, setUser] = useState(null);
   const pathUsername = location.pathname.split("/")[location.pathname.split("/").length - 1];
   const [accountDisplay, setAccountDisplay] = useState("listings");
-  const [displayedListings, setDisplayedListings] = useState([]);
+  const [displayedListings, setDisplayedListings] = useState(["no"]);
 
   useEffect(() => {
     if (me && me.username === pathUsername) {
@@ -22,6 +23,10 @@ function Account({me, onLogin}) {
       });
     }
   },[me, pathUsername]);
+
+  useEffect(() => {
+    setAccountDisplay("listings");
+  },[user]);
 
   useEffect(() => {
     if (!user) {
@@ -65,7 +70,7 @@ function Account({me, onLogin}) {
     });
   }
 
-  if (!user || !me) return null;
+  if (!user || !me  || !me.avatar || displayedListings === ["no"]) return null;
   return (
     <div>
       <div className="main-account-info">
@@ -75,7 +80,7 @@ function Account({me, onLogin}) {
           <p>@{user.username}</p>
         </div>
       </div>
-      <p className="account-bio">{user.bio}Hi I'm Zelie and this is my very cool account on Style Swap. Feel free to swap clothes with me, as that is the purpose of this site.</p>
+      <p className="account-bio">{user.bio}</p>
       <div className="account-display-options">
         <button name="listings" className={accountDisplay === "listings" ? "bold" : ""} onClick={e => setAccountDisplay(e.target.name)} >Listings</button>
         <button name="likes" className={accountDisplay === "likes" ? "bold" : ""} onClick={e => setAccountDisplay(e.target.name)}>Likes</button>
@@ -110,6 +115,7 @@ function Account({me, onLogin}) {
           }
         </div>
         : 
+        accountDisplay !== "matches" ? 
         <div className="browse-page">
           {
             displayedListings.map(listing => {
@@ -125,6 +131,8 @@ function Account({me, onLogin}) {
             })
           }
         </div>
+        :
+        <Matches user={user} matches={displayedListings}/>
       }
       <div className={user === me ? "account-settings" : "hidden"}>
       <button onClick={() => history.push("/setup")}>
